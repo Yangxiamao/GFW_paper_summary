@@ -2,13 +2,13 @@
 
 刻耳柏洛斯是希腊神话中看守冥界入口的恶犬，它允许每一个死者的灵魂进入冥界，但不让任何人出去，同时也不允许活人进入。
 
-纽约大学石溪分校的 Nguyen Phong Hoang 和多伦多大学的 Arian Akhavan Niaki 等人，建立了一个名为 GFWatch 的网络平台，对中国网络长城（俗称 GFW）的 DNS 审查系统进行了探测和实验，最后写出了一篇论文发表在历史悠久的 USENIX（高等计算系统协会）的相关会议上。文章名为《How Great is the Great Firewall?  Measuring China’s DNS Censorship》，您可通过链接 https://www.usenix.org/system/files/sec21-hoang.pdf 获得论文原文。
+纽约大学石溪分校的 Nguyen Phong Hoang 和多伦多大学的 Arian Akhavan Niaki 等人，建立了一个名为 GFWatch 的网络平台，对中国网络长城（俗称 GFW）的 DNS 审查系统进行了探测和实验，最后写出了一篇论文发表在历史悠久的 USENIX（高等计算系统协会）的相关会议上。文章名为《How Great is the Great Firewall? Measuring China’s DNS Censorship》，您可通过链接 https://www.usenix.org/system/files/sec21-hoang.pdf 获得论文原文。
 
 在 GFWatch 工作的九个月时间里，它测试了 5.34 亿个域名。论文展示了一组触目惊心的数据：至少有 31.1 万个域名被 GFW 的 DNS 过滤系统干扰。并且 GFW 还主动出击，在世界范围内污染了公共 DNS 解析服务（public DNS resolvers）中至少 7.7 万个域名的数据，其中包括谷歌和 Cloudflare 的 DNS 解析器。
 
 他们在论文中说：
 
-“These techniques will not only help public DNS resolvers and other DNS-related services to sanitize tainted records , but can also assist future development of circumvention tools tobypass the GFW’s DNS censorship .”
+“These techniques will not only help public DNS resolvers and other DNS-related services to sanitize tainted records, but can also assist future development of circumvention tools tobypass the GFW’s DNS censorship .”
 
 他们的研究不仅可以帮助清除 DNS 解析器和其他 DNS 相关服务中污染了的 DNS 数据，还可以帮助今后的开发人员去开发绕过 GFW 的 DNS 审查系统的工具。
 
@@ -63,10 +63,10 @@ GFWatch 的主要探测器位于没有 DNS 审查制度的美国，从这台机�
 
 ## 从 GFW 封锁网络清单中反推规则
 
-> 论多么天衣无缝的犯罪，只要是人作的，就没有解不开的道理。
+> 无论多么天衣无缝的犯罪，只要是人作的，就没有解不开的道理。
 > ——阿瑟·柯南·道尔《福尔摩斯全集》
 
-如果 subdomain.example.com 和 example.com 的所有子域都被封锁，研究人员就将 example.com 视为一个被封锁的域名（blocked domain）。最短的审查域名便称为 "基础域名"（base domain）。通过对 GFWatch 发现的 31.1 万个被审查的域名进行分析，研究人员发现了 13.87 万个基础域名。截至 2020 年 12 月 31 日，仍存在 12.6 万个被封禁的基础域名。
+如果 subdomain.example.com 和 example.com 的所有子域都被封锁，研究人员就将 example.com 视为一个被封锁的域名（blocked domain）。最短的审查域名便称为 “基础域名”（base domain）。通过对 GFWatch 发现的 31.1 万个被审查的域名进行分析，研究人员发现了 13.87 万个基础域名。截至 2020 年 12 月 31 日，仍存在 12.6 万个被封禁的基础域名。
 
 ![base](image/base.png)
 
@@ -100,9 +100,9 @@ GFWatch 的主要探测器位于没有 DNS 审查制度的美国，从这台机�
 
 研究人员使用了 FortiGuard 提供的服务，进行域名分类。
 
-统计发现，"商业"（business）、"色情 "（pornography）和 "信息技术 "（information technology）这三种网站是 GFW 封锁的主要类型（除了未分类的网站外）。
+统计发现，“商业”（business）、“色情”（pornography）和 “信息技术”（information technology）这三种网站是 GFW 封锁的主要类型（除了未分类的网站外）。
 
-另外一项没有没有统计子域名的研究则发现，"代理"（proxy avoidance）和 "个人网站和博客"（personal websites and blogs）是被封锁最多的网站类型。
+另外一项没有没有统计子域名的研究则发现，“代理”（proxy avoidance）和 “个人网站和博客”（personal websites and blogs）是被封锁最多的网站类型。
 
 ![censored_sort](image/sort.png)
 
@@ -112,7 +112,7 @@ GFWatch 的主要探测器位于没有 DNS 审查制度的美国，从这台机�
 
 ### COVID-19、自动化工具与雇员  
 
-GFWatch 检测到大量与 COVID-19 有关的域名被 GFW 通过 DNS 篡改进行审查，包括 covid19classaction.it、covid19song.info、covidcon.org、ccpcoronavirus.com、covidhaber.net以及covid-19truth.info 等网站。
+GFWatch 检测到大量与 COVID-19 有关的域名被 GFW 通过 DNS 篡改进行审查，包括 covid19classaction.it、covid19song.info、covidcon.org、ccpcoronavirus.com、covidhaber.net 以及 covid-19truth.info 等网站。
 
 虽然大多数 COVID-19 相关的网站在出现后很快被 GFW 发现并封锁，但研究人员发现 GFW 无法做到实时封禁相关网站。
 
@@ -185,7 +185,7 @@ GFW 甚至可以针对一个 DNS 查询发出多达三个伪造响应。从GFW�
 
 这一发现显示了 GFW 在世界范围内的广泛影响，使得公共的 DNS 解析器的操作者必须有一个有效的机制来防止这些中毒的资源记录污染他们的缓存，以保证他们的DNS服务质量。
 
-现在，研究人员将展示如何根据前文展示的 GFW 的特点和 GFWatch 获得的浩如烟海的数据制定策略，以有效和高效地规避GFW的DNS审查制度。
+现在，研究人员将展示如何根据前文展示的 GFW 的特点和 GFWatch 获得的浩如烟海的数据制定策略，以有效和高效地规避 GFW 的 DNS 审查制度。
 
 当收到一个以上的 IPv6 回应时，客户端可以根据 GFW 伪造的 IPV6 的显著特点排除掉被污染的 IP 地址。对于 IPv4 答案，客户端可以根据前文中发现的 GFW 伪造 IP 的注入模式和伪造的 IPv4 特点来检查它们。
 
