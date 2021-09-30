@@ -2,7 +2,7 @@
 
 刻耳柏洛斯是希腊神话中看守冥界入口的恶犬，它允许每一个死者的灵魂进入冥界，但不让任何人出去，同时也不允许活人进入。
 
-纽约大学石溪分校的 Nguyen Phong Hoang 和多伦多大学的 Arian Akhavan Niaki 等人，建立了一个名为 GFWatch 的网络平台，对中国网络长城（俗称 GFW）的 DNS 审查系统进行了探测和实验，最后写出了一篇论文发表在历史悠久的 USENIX（高等计算系统协会）上。文章名为《How Great is the Great Firewall ?  Measuring China’s DNS Censorship》，您可通过链接 https://www.usenix.org/system/files/sec21-hoang.pdf 获得论文原文。
+纽约大学石溪分校的 Nguyen Phong Hoang 和多伦多大学的 Arian Akhavan Niaki 等人，建立了一个名为 GFWatch 的网络平台，对中国网络长城（俗称 GFW）的 DNS 审查系统进行了探测和实验，最后写出了一篇论文发表在历史悠久的 USENIX（高等计算系统协会）的相关会议上。文章名为《How Great is the Great Firewall ?  Measuring China’s DNS Censorship》，您可通过链接 https://www.usenix.org/system/files/sec21-hoang.pdf 获得论文原文。
 
 在 GFWatch 工作的九个月时间里，它测试了5.34 亿个域名。论文展示了一组触目惊心的数据：至少有 31.1 万个域名被 GFW 的 DNS 过滤系统干扰。并且 GFW 还主动出击，在世界范围内污染了公共 DNS 解析服务（pub- lic DNS resolvers）中至少 7.7 万个域名的数据，其中包括谷歌和 Cloudflare 的 DNS resolvers。
 
@@ -41,7 +41,7 @@ GFWatch 同时被设计以可以实行长期探测。一旦它探测到某个网
 
 GFWatch 的主要探测器位于没有 DNS 审查制度的美国，从这台机器发送 DNS 查询消息前往位于中国的两台主机。但是位于中国的那两台主机并没有 DNS 解析能力，因此，主探测器的任何 DNS 响应都应该是来自 GFW。
 
-由于 GFWatch 被设计为使用 UDP 进行探测，而UDP是一个无状态和不可靠的协议，数据包可能会由于不受控制的因素（例如，网络拥堵）而丢失。为了尽量减少这些因素对数据收集的影响，GFWatch 每天至少对每个域名进行三次测试。
+因为 DNS query 使用 UDP，所以 GFWatch 也被设计为使用 UDP 进行探测。而 UDP 是一个无状态和不可靠的协议，数据包可能会由于不受控制的因素（例如，网络拥堵）而丢失。为了尽量减少这些因素对数据收集的影响，GFWatch 每天至少对每个域名进行三次测试。
 
 ![US_host](image/US.png)
 
@@ -97,7 +97,7 @@ GFWatch 的主要探测器位于没有 DNS 审查制度的美国，从这台机�
 
 研究人员使用了 FortiGuard 提供的服务，进行域名分类。
 
-统计发现， "商业"（business）、"色情 "（pornography）和 "信息技术 "（imformation technology）这三种网站是 GFW 封锁的主要类型（除了未分类的网站外）。
+统计发现， "商业"（business）、"色情 "（pornography）和 "信息技术 "（information technology）这三种网站是 GFW 封锁的主要类型（除了未分类的网站外）。
 
 另外一项没有没有统计子域名的研究则发现，"代理 "（proxy avoidance）和 "个人网站和博客 "（personal websites and blogs）是被封锁最多的网站类型。
 
@@ -183,7 +183,7 @@ GFW 甚至可以针对一个 DNS 查询发出多达三个伪造响应。从GFW�
 
 当收到一个以上的 IPv6 回应时，客户端可以根据 GFW 伪造的 IPV6 的显著特点排除掉被污染的 IP 地址。对于 IPv4 答案，客户端可以根据前文中发现的 GFW 伪造 IP 的注入模式和伪造的 IPv4 特点来检查它们。
 
-从下图中，我们可以看到 99% 的被 GFW 污染的 DNS 响应比正确的响应提前 364ms 到达我们的机器（这个延迟时间根据终端和 GFW 之间的相对距离的不同而可能会有所不同）。换句话说，在查询一个受审查的域名，收到 DNS 响应时，客户端最多应该多等 364ms，以等待合法域名的到来。
+从下图中，我们可以看到 99% 的被 GFW 污染的 DNS 响应比正确的响应提前 364ms 到达我们的机器（这个延迟时间根据终端和 GFW 之间的相对距离的不同而可能会有所不同）。换句话说，在查询一个受审查的域名 IP 时，收到 GFW 设备发出的 DNS 响应时，客户端最多应该多等 364ms，以等待正确 IP 的到来。
 
 ![static](image/time.png)
 
