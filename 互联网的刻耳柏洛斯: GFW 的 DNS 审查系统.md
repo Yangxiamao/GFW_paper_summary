@@ -8,7 +8,7 @@
 
 他们在论文中说：
 
-“These techniques will not only help public DNS resolvers and other DNS-related services to sanitize tainted records, but can also assist future development of circumvention tools tobypass the GFW’s DNS censorship .”
+“These techniques will not only help public DNS resolvers and other DNS-related services to sanitize tainted records, but can also assist future development of circumvention tools tobypass the GFW’s DNS censorship.”
 
 他们的研究不仅可以帮助清除 DNS 解析器和其他 DNS 相关服务中污染了的 DNS 数据，还可以帮助今后的开发人员去开发绕过 GFW 的 DNS 审查系统的工具。
 
